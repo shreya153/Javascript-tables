@@ -7,7 +7,7 @@ head.innerText = "USER DATA";
 var tablediv = document.getElementById("tablediv");
 document.body.appendChild(table).appendChild(head);
 table.setAttribute("id",`tab2`);
-table.setAttribute("border","1");
+table.setAttribute("border","2");
 
 function addtotable(){
 
@@ -29,6 +29,10 @@ function addtotable(){
   cell0.innerHTML = name;
   cell1.innerText = number;
   cell2.innerText = mail;
+  cell0.setAttribute("style","font-family:cambria;");
+  cell1.setAttribute("style","font-family:cambria;");
+  cell2.setAttribute("style","font-family:cambria;");
+
 
   console.log(count)
 
@@ -62,8 +66,17 @@ function deleterow(ct){
 
 }
 
-function editRow(rowID)
+function editRow(rowID,ct)
 {
     var row = document.getElementById(rowID);
-    console.log(row.value);
+    var ind = row.rowIndex;
+    document.getElementById("submit").innerHTML = "Update";
+    var name = document.getElementById("tab2").rows[ind].cells.item(0).innerHTML;
+    var numb = document.getElementById("tab2").rows[ind].cells.item(1).innerHTML;
+    var mai = document.getElementById("tab2").rows[ind].cells.item(2).innerHTML;
+    console.log(name,numb,mai);
+    document.getElementById("nam").value = name;    
+    document.getElementById("num").value = numb;
+    document.getElementById("mail").value = mai;
+    
 }
